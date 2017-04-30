@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <h3>以下の内容で、送信する。</h3>
+    <%= form_for(@gewitter) do |f| %>
+  <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定できるようにしています。 -->
+    <%= f.hidden_field :content %>
+  <!-- @gewitter.titleと@gewitter.contentとすることで、表示用の値を画面に出力しています。 -->
+     <p>ゲビッタ本文:<%= @gewitter.content %></p>
+    <%= f.submit "登録する",class: 'btn btn-success btn-block' %>
+<% end %>
+
+<%= form_for(@gewitter, url: new_gewitter_path, method: 'get') do |f| %>
+  <%= f.hidden_field :content %>
+  <%= f.submit "戻る", name: 'back', class: 'btn btn-default btn-block' %>
+  <% end %>
+    </div>
+</div>
